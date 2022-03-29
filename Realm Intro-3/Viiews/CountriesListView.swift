@@ -28,12 +28,12 @@ struct CountriesListView: View {
                         .listRowSeparator(.hidden)
                     }
                     .listStyle(.plain)
-                    .searchable(text: $searchFilter,collection: $countries, keyPath: \.name, placement: .navigationBarDrawer(displayMode: .always)) {
-                        ForEach(countries) { country in
-                            Text(country.name)
-                                .searchCompletion(country.name)
-                        }
-                    }
+//                    .searchable(text: $searchFilter,collection: $countries, keyPath: \.name, placement: .navigationBarDrawer(displayMode: .always)) {
+//                        ForEach(countries) { country in
+//                            Text(country.name)
+//                                .searchCompletion(country.name)
+//                        }
+//                    }
             }
             .animation(.default, value: countries)
             .navigationTitle("Countries")

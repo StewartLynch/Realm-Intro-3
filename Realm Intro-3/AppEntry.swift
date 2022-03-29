@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct Realm_Intro_3App: App {
-    let migrator = Migrator()
+    @StateObject var realmManager = RealmManager(name: "example3")
     var body: some Scene {
         WindowGroup {
             TabView {
@@ -17,6 +17,7 @@ struct Realm_Intro_3App: App {
                     .tabItem {
                         Label("Countries", systemImage: "list.dash")
                     }
+                    .environmentObject(realmManager)
                 AllCitiesListView()
                     .tabItem {
                         Label("Cities", systemImage: "list.dash")
@@ -24,7 +25,6 @@ struct Realm_Intro_3App: App {
                 
             }
                 .onAppear {
-                    print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.path)
                      UserDefaults.standard.setValue(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
                 }
         }
